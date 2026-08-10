@@ -10,6 +10,16 @@ static constexpr uint16_t PROTOCOL_MINOR = 0;
 static constexpr uint32_t PROTOCOL_VERSION =
     (static_cast<uint32_t>(PROTOCOL_MAJOR) << 16) | PROTOCOL_MINOR;
 
+static constexpr uint16_t protocolVersionMajor(uint32_t version)
+{
+    return static_cast<uint16_t>((version >> 16) & 0xFFFFu);
+}
+
+static constexpr uint16_t protocolVersionMinor(uint32_t version)
+{
+    return static_cast<uint16_t>(version & 0xFFFFu);
+}
+
 struct Message
 {
     uint32_t cmd;
