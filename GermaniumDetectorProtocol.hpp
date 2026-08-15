@@ -27,7 +27,7 @@ struct Message
     uint32_t value;
 };
 
-static_assert(sizeof(Message) == 12,
+static_assert(sizeof(Message) == 12, 
               "GermaniumProtocol::Message must be 12 bytes");
 
 namespace Command
@@ -55,7 +55,7 @@ namespace Command
 }
 
 namespace Register
-{
+{   
     static constexpr uint32_t MARS_CONF_LOAD    = 0;
     static constexpr uint32_t LEDS              = 1;
     static constexpr uint32_t MARS_CONFIG       = 2;
@@ -99,19 +99,20 @@ namespace Register
 
 enum MarsGlobalField
 {
-    MARS_FIELD_ST   = 0,
-    MARS_FIELD_GAIN = 1,
-    MARS_FIELD_POL  = 2,
-    MARS_FIELD_EBLK = 3,
-    MARS_FIELD_GMON = 4,
-    MARS_FIELD_PUEN = 5,
-    MARS_FIELD_MFS  = 6,
-    MARS_FIELD_TDS  = 7,
-    MARS_FIELD_TDM  = 8,
-    MARS_FIELD_TH   = 9,
-    MARS_FIELD_C    = 10,
-    MARS_FIELD_M0   = 11,
-    MARS_FIELD_SAUX = 12,
+    MARS_FIELD_ST    = 0,
+    MARS_FIELD_GAIN  = 1,
+    MARS_FIELD_POL   = 2,
+    MARS_FIELD_EBLK  = 3,
+    MARS_FIELD_GMON  = 4,
+    MARS_FIELD_PUEN  = 5,
+    MARS_FIELD_MFS   = 6,
+    MARS_FIELD_TDS   = 7,
+    MARS_FIELD_TDM   = 8,
+    MARS_FIELD_TH    = 9,
+    MARS_FIELD_TPAMP = 10,
+    MARS_FIELD_C     = 11,
+    MARS_FIELD_M0    = 12,
+    MARS_FIELD_SAUX  = 13,
 };
 
 enum MarsChannelField
@@ -120,6 +121,7 @@ enum MarsChannelField
     MARS_CH_TSEN = 1,
     MARS_CH_THTR = 2,
     MARS_CH_PUTR = 3,
+    MARS_CH_SEL  = 4,
 };
 
 } // namespace GermaniumProtocol
