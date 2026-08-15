@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <string>
 
 namespace GermaniumProtocol
 {
@@ -123,5 +124,33 @@ enum MarsChannelField
     MARS_CH_PUTR = 3,
     MARS_CH_SEL  = 4,
 };
+
+namespace TemperatureSelector
+{
+    static constexpr uint32_t TMP100_1 = 0;
+    static constexpr uint32_t TMP100_2 = 1;
+    static constexpr uint32_t TMP100_3 = 2;
+}
+
+namespace DacChannel
+{
+    static constexpr uint32_t HV       = 5;
+    static constexpr uint32_t PELTIER1 = 6;
+    static constexpr uint32_t PELTIER2 = 2;
+}
+
+namespace AdcChannel
+{
+    static constexpr uint32_t HV_VOLTAGE       = 4;
+    static constexpr uint32_t HV_CURRENT       = 5;
+    static constexpr uint32_t PELTIER1_CURRENT = 6;
+    static constexpr uint32_t PELTIER2_CURRENT = 7;
+}
+
+const char* commandName(uint32_t cmd);
+const char* registerName(uint32_t addr);
+const char* marsGlobalFieldName(uint16_t field);
+const char* marsChannelFieldName(uint16_t field);
+std::string formatMessage(const Message& msg);
 
 } // namespace GermaniumProtocol
